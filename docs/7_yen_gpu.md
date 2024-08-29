@@ -26,7 +26,8 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 gpu          up 1-00:00:00      3   idle yen-gpu[1-3]
 ```
 
-{% include warning.html content="There is a limit of 1 day runtime and 4 GPUs per user."%}
+{: .warning}
+There is a limit of 1 day runtime and 4 GPUs per user.
 
 See partition limits with:
 ```bash
@@ -238,7 +239,7 @@ is not user writable.
 The PyTorch example script uses the MNIST dataset for image classification, and consists of a simple fully connected neural network 
 with one hidden layer. 
 
-We will run the [`mnist.py`](https://github.com/gsbdarc/rf_bootcamp_2024/blob/main/examples/python_examples/mnist.py) script on the GPU node. 
+We will run the [`mnist.py`](https://github.com/gsbdarc/intermediate_yens_2024/blob/main/examples/mnist.py) script on the GPU node. 
 
 ### Submit Slurm script
 
@@ -317,7 +318,7 @@ Wed Jun 26 12:16:41 2024
 +-----------------------------------------------------------------------------------------+
 ```
 
-`nvidia-smi` also tells you how much GPU RAM is used by the process. When training LLM or other models, it's important to fully utilize the GPU RAM so that the training is optimized. So if the GPU has 24 G of RAM, we can adjust the batch size to use as much data as fits into the GPU RAM and monitor `nvidia-smi` output so see how much RAM is used while the job is running. If the batch size is too large, your job will crash with OOM error. Try reducing the batch size then try again (while monitoring GPU memory usage).
+`nvidia-smi` also tells you how much GPU RAM is used by the process. When training LLM or other models, it's important to fully utilize the GPU RAM so that the training is optimized. So if the GPU has 24 G of RAM, we can adjust the batch size to use as much data as fits into the GPU RAM and monitor `nvidia-smi` output so see how much RAM is used while the job is running. If the batch size is too large, your job will crash with OOM error. Reduce the batch size then try again (while monitoring GPU memory usage).
 
 In the output example above, we are way under-utilizing the GPU RAM (using only 1 G out of 24 G).
 
@@ -372,4 +373,5 @@ not have GPUs).
 
 ![](../assets/images/pytorch-kernel.png)
 
-**Note:** The Yens also have prebuilt `tensorflow` module that can be used in a similar way to `pytorch`.
+{: .note }
+The Yens also have prebuilt `tensorflow` module that can be used in a similar way to `pytorch`.
