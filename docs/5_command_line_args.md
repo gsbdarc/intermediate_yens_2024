@@ -2,8 +2,7 @@
 title: 5. Command Line Arguments 
 layout: page
 nav_order: 5
-parent: Day 4
-updateDate: 2024-07-16
+updateDate: 2024-08-29
 ---
 
 # {{ page.title }}
