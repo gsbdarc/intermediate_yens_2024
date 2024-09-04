@@ -2,7 +2,7 @@
 title: 2. Python Virtual Environments
 layout: page
 nav_order: 2
-updateDate: 2024-08-29
+updateDate: 2024-09-04
 ---
 
 
@@ -103,7 +103,7 @@ Example
 (venv) $ python -m ipykernel install --user --name=venv
 ```
 
-![](../assets/images/jupyter_venv.png)
+![](assets/images/jupyter_venv.png)
 
 ## Sharing the Environment
 
@@ -114,7 +114,7 @@ Environments can get quite large and take up lots of space depending on the proj
 ```
 This will be different depending on which packages you install and can help users run the code you developed using that environment.
 
-![](../assets/images/requirements.png)
+![](assets/images/requirements.png)
 
 To then replicate an environment you need to perform the following steps:
 
@@ -135,16 +135,17 @@ $ deactivate
 ```
 
 ### Removing the Virtual Environment
+If you created a Jupyter kernel you will first need to remove that with the following command from your home from **within** your virtual environment
+
+```bash 
+(venv) $ jupyter kernelspec uninstall venv
+```
+
+
 If you would like to delete the previously created virtual enviroment, simply delete the environment directory since `venv` environment is essentially a directory containing files and folders. 
 
 ```
 $ rm -rf venv
-```
-
-If you created a Jupyter kernel you will also need to remove that with the following command from your home
-
-```bash 
-$ jupyter kernelspec uninstall venv
 ```
 
 # Exercise
