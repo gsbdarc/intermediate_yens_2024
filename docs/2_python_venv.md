@@ -149,11 +149,11 @@ $ rm -rf venv
 ```
 
 # Exercise
-
-1. Navigate to `examples/python_examples`
-2. Create a new virtual environment named **venv**
-3. Activate the environment
-4. Install the packages in `requirements.txt`
+1. git clone the repository `git clone https://github.com/gsbdarc/intermediate_yens_2024.git`
+2. Navigate to `examples/python_examples`
+3. Create a new virtual environment named **venv**
+4. Activate the environment
+5. Install the packages in `requirements.txt`
 
 <details>
 <summary>Click for answer</summary>
