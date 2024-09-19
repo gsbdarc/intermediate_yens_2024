@@ -47,14 +47,14 @@ We highly recommend using `venv`, Python’s built-in tool for creating virtual 
 Let's navigate to a project directory:
 
 ```bash
-$ cd <path/to/project>
+cd <path/to/project>
 ```
 where `<path/to/project>` is the shared project location on ZFS.
 
 Create a new virtual environment:
 
 ```bash
-$ /usr/bin/python3  -m venv venv # Note venv is a customizable name
+/usr/bin/python3  -m venv venv # Note venv is a customizable name
 ```
 where we make a directory `venv` inside the project directory. 
 
@@ -62,7 +62,7 @@ where we make a directory `venv` inside the project directory.
 
 Next, we activate the virtual environment:
 ```bash
-$ source venv/bin/activate
+source venv/bin/activate
 ```
 
 You should see `(venv):` prepended to the prompt: 
@@ -73,7 +73,7 @@ You should see `(venv):` prepended to the prompt:
 Check Python version:
 
 ```bash
-$ which python
+which python
 /path/to/env/venv/bin/python
 ```
 
@@ -110,7 +110,7 @@ Example
 Environments can get quite large and take up lots of space depending on the project. An easy way to share them is you share the requirements.txt file which is a list of all the libraries and versions. 
 
 ```bash 
-(venv)$  pip freeze > requirements.txt 
+(venv) $  pip freeze > requirements.txt 
 ```
 This will be different depending on which packages you install and can help users run the code you developed using that environment.
 
