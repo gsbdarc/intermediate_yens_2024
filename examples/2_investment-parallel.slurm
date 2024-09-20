@@ -8,7 +8,7 @@
 #SBATCH -t 1:00:00
 #SBATCH -o out/npv-par-%j.out
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=nrapstin@stanford.edu
+#SBATCH --mail-user=your_email@stanford.edu
 
 # Activate venv 
 source venv/bin/activate

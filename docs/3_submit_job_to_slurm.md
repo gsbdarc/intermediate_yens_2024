@@ -16,13 +16,13 @@ Let's run a python version of the script, `1_investment-serial.py`, which is a s
 Activate your virtual python environment, `venv`, first:
 
 ```
-$ cd examples
-$ source venv/bin/activate
+cd examples
+source venv/bin/activate
 ```
 
 Run the script like so: 
 ```bash
-$ python 1_investment-serial.py
+python 1_investment-serial.py
 ```
 
 The output should look like:
@@ -55,8 +55,8 @@ The important arguments here are that you request:
 We are going to make an `out` directory for storing all the output files, then submit the script:
 
 ```bash
-$ mkdir -p out
-$ sbatch 1_investment-serial.slurm
+mkdir -p out
+sbatch 1_investment-serial.slurm
 ```
 
 You should see a similar output:
@@ -67,7 +67,7 @@ Submitted batch job 44097
 
 Monitor your job:
 ```bash
-$ squeue
+squeue
 ```
 
 - `JOBID` lists a unique numeric job ID for this job.
@@ -80,7 +80,7 @@ the name of the submission batch script is used). Job names do not have to be un
 - `NODES` lists how many different machines or nodes the job is running on (1 means the job is running on one node only and 2 means the job is running on two nodes, and so on).
 - `NODELIST(REASON)` lists the hostname for the node that the job is running on (`yen11`, `yen12`, `yen13`, `yen14`, `yen15`, `yen16`, `yen17`, `yen18`, `yen-gpu1`, `yen-gpu2` or `yen-gpu3`).
 
-
+{: .tip}
 For pending jobs, you will see a reason why this jobs has not started yet. Common reasons are `(Resources)` when the job is waiting on resources
 such as CPU cores, GPU's or memory to be available before it can start and `(Priority)` when the job is lower in priority than other jobs in the queue
 but the resources are available.
@@ -88,7 +88,7 @@ but the resources are available.
 Filtering this command for your user will display only your running and queued jobs:
 
 ```bash
-$ squeue -u $USER
+squeue -u $USER
 ```
 
 
@@ -97,7 +97,7 @@ The script should take less than a minute to complete. Look at the slurm emails 
 Since the job is executed in batch mode, you will not see anything printed to the screen. All print statements go into the specified output file. While the job is running, you can look at the output file with:
 
 ```bash
-$ tail -f out/npv-serial*out
+tail -f out/npv-serial*out
 ```
 
 ### How Do I Cancel My Job on Yen-Slurm?

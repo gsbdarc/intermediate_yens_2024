@@ -1,5 +1,6 @@
 venv/
 out/
+histogram.png
 _site/
 .sass-cache/
 .jekyll-cache/

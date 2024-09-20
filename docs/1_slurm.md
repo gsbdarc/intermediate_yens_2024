@@ -2,12 +2,12 @@
 title: 1. Yen-Slurm Cluster 
 layout: page
 nav_order: 1
-updateDate: 2024-08-29
+updateDate: 2024-09-18
 ---
 
 # {{ page.title }}
 
-Today we will be working with the scheduled Yens.
+In this session, we will be working with the scheduled Yens.
 
 The `yen-slurm` is a computing cluster designed to give researchers the ability to run computations that require a large amount of resources without leaving the environment and filesystem of the interactive Yens.
 
@@ -57,7 +57,12 @@ Once your process is capable of running on the interactive Yen command line, you
 You can look at the current job queue by running `squeue`:
 
 ```bash
-USER@yen4:~$ squeue
+squeue
+```
+
+You should see the output for all jobs currently running and pending in the queue:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
               1043    normal    a_job    user1 PD       0:00      1 (Resources)
               1042    normal    job_2    user2  R    1:29:53      1 yen11
@@ -76,20 +81,17 @@ The Slurm scheduler keeps track of the resources you request, and the resources 
 
 Small jobs start faster than big jobs. Small jobs likely finish faster too.  If your job requires doing the same process many times (i.e. OCR'ing many PDFs), it will benefit you to setup your job as many small jobs.
 
-## Tips and Tricks
-
 ### Current Partitions and their limits
 
 Run `sinfo` command to see available partitions:
 
 ```bash
-$ sinfo
+sinfo
 ```
 
 You should see the following output:
 
 ```bash
-USER@yen4:~$ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 normal*      up 2-00:00:00      8   idle yen[11-18]
 dev          up    2:00:00      8   idle yen[11-18]
@@ -122,6 +124,7 @@ Or with a shorthand:
 #SBATCH -p dev
 ```
 
+{: .tip}
 If you don’t specify the partition in the submission script, the job is queued in the `normal` partition. To request a particular partition, for example, `long`, specify `#SBATCH -p long` in the slurm submission script. You can specify more than one partition if the job can be run on multiple partitions (i.e. `#SBATCH -p normal,dev`).
 
 ### How do I check how busy the machines are?
@@ -129,7 +132,12 @@ If you don’t specify the partition in the submission script, the job is queued
 You can pass format options to the `sinfo` command as follows:
 
 ```bash
-USER@yen4:~$ sinfo --format="%m | %C"
+sinfo --format="%m | %C"
+```
+
+You should see:
+
+```
 MEMORY | CPUS(A/I/O/T)
 257366+ | 268/1300/0/1568
 ```
@@ -141,7 +149,12 @@ For example, if you see `268/1300/0/1568` that means 268 CPU's are allocated, 1,
 You can also run `checkyens` and look at the last line for summary of all pending and running jobs on yen-slurm.
 
 ```bash
-USER@yen4:~$ checkyens
+checkyens
+```
+
+You should see the following:
+
+```
 Enter checkyens to get the current server resource loads. Updated every minute.
 yen1 :  2 Users | CPU [####                20%] | Memory [####                20%] | updated 2024-06-20-07:58:00
 yen2 :  2 Users | CPU [                     0%] | Memory [##                  11%] | updated 2024-06-20-07:58:01
